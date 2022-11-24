@@ -12,6 +12,7 @@ class ProductCategory(models.Model):
         db_table = 'category'
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+        ordering = ['id']
 
 
 class Product(models.Model):
@@ -23,9 +24,11 @@ class Product(models.Model):
     category = models.ForeignKey(ProductCategory, on_delete=models.PROTECT, verbose_name='Категория')
 
     def __str__(self):
-        return f'{self.name} {self.category}'
+        return f'Продукт: {self.name} | Категория: {self.category}'
 
     class Meta:
         db_table = 'product'
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
+        ordering = ['id']
+
