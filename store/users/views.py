@@ -1,4 +1,5 @@
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
@@ -34,6 +35,7 @@ class UserRegistrationView(SuccessMessageMixin, CreateView):
     title = 'Store - Регистрация'
 
 
+@login_required
 def profile(request):
     if request.method == 'POST':
         form = UserProfileForm(instance=request.user, data=request.POST, files=request.FILES)
