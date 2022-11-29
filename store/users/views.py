@@ -4,6 +4,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 
+from products.models import Basket
 from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
 from users.models import User
 
@@ -20,7 +21,7 @@ def login(request):
                 return HttpResponseRedirect(reverse('index'))
     else:
         form = UserLoginForm()
-    context = {'form': form}
+    context = {'title': 'Store - Авторизация', 'form': form}
     return render(request, 'users/login.html', context)
 
 
@@ -41,7 +42,7 @@ def profile(request):
             return HttpResponseRedirect(reverse('users:profile'))
     else:
         form = UserProfileForm(instance=request.user)
-    context = {'title': 'Store - профиль', 'form': form}
+    context = {'title': 'Store - профиль', 'form': form, 'basket': Basket.objects.filter(user=request.user)}
     return render(request, 'users/profile.html', context)
 
 

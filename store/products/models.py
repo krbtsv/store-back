@@ -48,4 +48,4 @@ class Basket(models.Model):
         ordering = ['id']
 
     def __str__(self):
-        pass
+        return f'Корзина для {self.user.username} | Продукт: {self.product.name}'
