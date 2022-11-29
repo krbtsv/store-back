@@ -1,9 +1,11 @@
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 
+from products.models import Basket
 from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
 from users.models import User
 
@@ -20,7 +22,7 @@ def login(request):
                 return HttpResponseRedirect(reverse('index'))
     else:
         form = UserLoginForm()
-    context = {'form': form}
+    context = {'title': 'Store - Авторизация', 'form': form}
     return render(request, 'users/login.html', context)
 
 
@@ -33,6 +35,7 @@ class UserRegistrationView(SuccessMessageMixin, CreateView):
     title = 'Store - Регистрация'
 
 
+@login_required
 def profile(request):
     if request.method == 'POST':
         form = UserProfileForm(instance=request.user, data=request.POST, files=request.FILES)
@@ -41,7 +44,14 @@ def profile(request):
             return HttpResponseRedirect(reverse('users:profile'))
     else:
         form = UserProfileForm(instance=request.user)
-    context = {'title': 'Store - профиль', 'form': form}
+
+    baskets = Basket.objects.filter(user=request.user)
+
+    context = {
+        'title': 'Store - профиль',
+        'form': form,
+        'baskets': baskets,
+    }
     return render(request, 'users/profile.html', context)
 
 

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from products.models import ProductCategory, Product
+from products.models import ProductCategory, Product, Basket
 
 
 @admin.register(ProductCategory)
@@ -21,3 +21,9 @@ class ProductAdmin(admin.ModelAdmin):
         return '-'
 
     get_image.short_description = 'Фото'
+
+
+@admin.register(Basket)
+class BasketAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'created_timestamp')
+    list_display_links = ('id', 'user')
