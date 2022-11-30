@@ -14,6 +14,9 @@ class ProductCategoryAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'description', 'price', 'quantity', 'category', 'get_image')
     list_display_links = ('id', 'name')
+    fields = ('name', 'description', ('price', 'quantity'), 'image', 'category')
+    readonly_fields = ('description',)
+    search_fields = ('name',)
 
     def get_image(self, obj):
         if obj.image:
@@ -23,7 +26,7 @@ class ProductAdmin(admin.ModelAdmin):
     get_image.short_description = 'Фото'
 
 
-@admin.register(Basket)
-class BasketAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'created_timestamp')
-    list_display_links = ('id', 'user')
+class BasketAdmin(admin.TabularInline):
+    model = Basket
+    fields = ('product', 'quantity')
+    extra = 0
