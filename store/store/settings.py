@@ -24,7 +24,9 @@ SECRET_KEY = 'django-insecure-qpap_(3a9d&-uvg+q3*bz$=p^f!20x%2b@z6zv8^ah3u@-tivk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+DOMAIN_NAME = 'http://localhost:8000'
 
 # Application definition
 
