@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from products.models import ProductCategory, Product, Basket
+from products.models import Basket, Product, ProductCategory
 
 
 @admin.register(ProductCategory)
