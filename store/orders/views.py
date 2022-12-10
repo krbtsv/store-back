@@ -5,6 +5,7 @@ from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 
@@ -77,3 +78,13 @@ def fulfill_order(session):
     print("Fulfilling order")
     order = Order.objects.get(id=order_id)
     order.update_after_payment()
+
+
+class OrderListView(TitleMixin, ListView):
+    template_name = 'orders/orders.html'
+    title = 'Store - Заказы'
+    queryset = Order.objects.all()
+
+    def get_queryset(self):
+        queryset = super(OrderListView, self).get_queryset()
+        return queryset.filter(initiator=self.request.user)
