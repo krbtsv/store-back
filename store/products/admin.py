@@ -14,7 +14,7 @@ class ProductCategoryAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'description', 'price', 'quantity', 'category', 'get_image')
     list_display_links = ('id', 'name')
-    fields = ('name', 'description', ('price', 'quantity'), 'image', 'category')
+    fields = ('name', 'description', ('price', 'quantity'), 'image', 'stripe_product_price_id', 'category')
     readonly_fields = ('description',)
     search_fields = ('name',)
 
