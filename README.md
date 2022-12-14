@@ -6,14 +6,21 @@ ___
 ### Stacks
 + Python
 + Django, DRF
-+ PostgreSQL
++ [PostgreSQL](#PostgreSQL)
 + [Celery](#Celery)
 + Redis
 ### Functions
 + Register/Login users
++ Confirm email address
 + Authorization with GitHub
 + Users have a profile
-+ Possibility to add goods to basket
++ Add goods to basket
++ Payment for goods through stripe payment system.
++ Purchase history
+___
+### PostgreSQL
+Database shema:  
+![Thumbnail](Documents/store_dress-public.png) 
 ___
 ### Celery
 On project used `celery` with message broker `redis` for optimization email sending after registration users.  
@@ -27,3 +34,4 @@ After using **Celery**:
   
 ![Thumbnail](Documents/email-verification-celery.jpg)  
 Now the user is immediately redirected to the login page. And the task of sending a verification letter is taken over by `celery`  
+___  
