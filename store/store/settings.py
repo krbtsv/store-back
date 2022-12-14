@@ -22,11 +22,11 @@ env = environ.Env(
     REDIS_HOST=(str),
     REDIS_PORT=(str),
 
-    DATABASE_NAME=(str),
-    DATABASE_USER=(str),
-    DATABASE_PASSWORD=(str),
-    DATABASE_HOST=(str),
-    DATABASE_PORT=(str),
+    DATABASE_DRESS_STORE_NAME=(str),
+    DATABASE_DRESS_STORE_USER=(str),
+    DATABASE_DRESS_STORE_PASSWORD=(str),
+    DATABASE_DRESS_STORE_HOST=(str),
+    DATABASE_DRESS_STORE_PORT=(str),
 
     EMAIL_HOST=(str),
     EMAIL_PORT=(int),
@@ -144,11 +144,11 @@ CACHES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT'),
+        'NAME': env('DATABASE_DRESS_STORE_NAME'),
+        'USER': env('DATABASE_DRESS_STORE_USER'),
+        'PASSWORD': env('DATABASE_DRESS_STORE_PASSWORD'),
+        'HOST': env('DATABASE_DRESS_STORE_HOST'),
+        'PORT': env('DATABASE_DRESS_STORE_PORT'),
     }
 }
 
@@ -223,7 +223,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-SITE_ID = 3
+SITE_ID = 4
 
 SOCIALACCOUNT_PROVIDERS = {
     'github': {
