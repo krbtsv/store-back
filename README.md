@@ -3,12 +3,13 @@ Website for clothing store.
 ## Screenshots
 ___
 ![Thumbnail](Documents/products-photo.jpg)
-### Stacks
+## Stacks
 + Python
-+ Django, DRF
++ [Django](#Django), DRF
 + [PostgreSQL](#PostgreSQL)
 + [Celery](#Celery)
 + Redis
++ NGINX, Gunicorn
 ### Functions
 + Register/Login users
 + Confirm email address
@@ -17,6 +18,17 @@ ___
 + Add goods to basket
 + Payment for goods through stripe payment system.
 + Purchase history
+___
+### Django
+Django follows the Model-View-Template(MVT) design pattern. MVT determines the total structure and workflow of a Django application.  
+  
+In an MVT architecture:
++ **Model** manages the data and is represented by a database. A model is basically a database table. 
++ **View** receives HTTP request and sends HTTP response. A view interacts with a model and template to complete a response.
++ **Template** is basically the front-end layer and the dynamic HTML component of a Django application.  
+  
+*Diagram:*
+![Thumbnail](Documents/django-work.jpg) 
 ___
 ### PostgreSQL
 Database shema:  
@@ -35,3 +47,5 @@ After using **Celery**:
 ![Thumbnail](Documents/email-verification-celery.jpg)  
 Now the user is immediately redirected to the login page. And the task of sending a verification letter is taken over by `celery`  
 ___  
+
+
