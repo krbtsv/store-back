@@ -4,12 +4,10 @@ Website for clothing store.
 ___
 ![Thumbnail](Documents/products-photo.jpg)
 ## Stacks
-+ Python
 + [Django](#Django), DRF
 + [PostgreSQL](#PostgreSQL)
-+ [Celery](#Celery)
-+ Redis
-+ NGINX, Gunicorn
++ [Celery](#Celery), Redis
++ [Deploy](#Deploy): NGINX, Gunicorn
 ### Functions
 + Register/Login users
 + Confirm email address
@@ -47,5 +45,11 @@ After using **Celery**:
 ![Thumbnail](Documents/email-verification-celery.jpg)  
 Now the user is immediately redirected to the login page. And the task of sending a verification letter is taken over by `celery`  
 ___  
-
+### Deploy  
+For deploy a Django application on the production environment we will need a powerful and more secure web server.  
+In this case, we use `Gunicorn` as a WSGI(Web Server Gateway Interface) HTTP server and `Nginx` as a proxy server to serve application securely with robust performance.  
+  
+*Diagram:*
+![Thumbnail](Documents/server-work.jpg)  
+___
 
