@@ -25,7 +25,8 @@ In an MVT architecture:
 + **View** receives HTTP request and sends HTTP response. A view interacts with a model and template to complete a response.
 + **Template** is basically the front-end layer and the dynamic HTML component of a Django application.  
   
-*Diagram:*
+*Diagram:*  
+
 ![Thumbnail](Documents/django-work.jpg) 
 ___
 ### PostgreSQL
@@ -49,7 +50,8 @@ ___
 For deploy a Django application on the production environment we will need a powerful and more secure web server.  
 In this case, we use `Gunicorn` as a WSGI(Web Server Gateway Interface) HTTP server and `Nginx` as a proxy server to serve application securely with robust performance.  
   
-*Diagram:*
+*Diagram:*  
+
 ![Thumbnail](Documents/server-work.jpg)  
 ___
 
