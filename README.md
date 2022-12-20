@@ -4,10 +4,12 @@ Website for clothing store.
 ___
 ![Thumbnail](Documents/products-photo.jpg)
 ## Stacks
-+ [Django](#Django), DRF
++ [Django](#Django), DRF 
 + [PostgreSQL](#PostgreSQL)
 + [Celery](#Celery), Redis
-+ [Deploy](#Deploy): NGINX, Gunicorn
++ [Deploy](#Deploy): NGINX, Gunicorn  
+  
+[![Python Version](https://img.shields.io/badge/python-3.9-blue.svg)]()
 ### Functions
 + Register/Login users
 + Confirm email address
