@@ -16,7 +16,7 @@ ___
 + Authorization with GitHub
 + Users have a profile
 + Add goods to basket
-+ Payment for goods through stripe payment system.
++ Payment for goods through [stripe](#Stripe) payment system.
 + Purchase history
 ___
 ### Django
@@ -56,4 +56,8 @@ In this case, we use `Gunicorn` as a WSGI(Web Server Gateway Interface) HTTP ser
 
 ![Thumbnail](Documents/server-work.jpg)  
 ___
+
+### Stripe
+To test the payment system, use the following card:  
+![Thumbnail](Documents/card.png)  
 
