@@ -3,8 +3,13 @@ from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
-from products.models import Basket, Product
-from products.serializers import BasketSerializer, ProductSerializer
+from products.models import Basket, Product, ProductCategory
+from products.serializers import BasketSerializer, ProductSerializer, ProductCategorySerializer
+
+
+class ProductCategoryModelViewSet(ModelViewSet):
+    queryset = ProductCategory.objects.all()
+    serializer_class = ProductCategorySerializer
 
 
 class ProductModelViewSet(ModelViewSet):

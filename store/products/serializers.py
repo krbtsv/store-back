@@ -3,6 +3,12 @@ from rest_framework import fields, serializers
 from products.models import Basket, Product, ProductCategory
 
 
+class ProductCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductCategory
+        fields = ('name',)
+
+
 class ProductSerializer(serializers.ModelSerializer):
     category = serializers.SlugRelatedField(slug_field='name', queryset=ProductCategory.objects.all())
 
